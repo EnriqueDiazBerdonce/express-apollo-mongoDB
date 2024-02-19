@@ -1,20 +1,20 @@
 const { gql } = require('apollo-server-express')
 
 const typeDefs  = gql`
-    type Task{
+    type User{
         id: ID
-        title: String
-        description: String
+        nickname: String
+        password: String
     }
 
 
     type Query {
         hello: String
-        getAllTasks: [Task]
+        getAllUsers: [User]
     }
 
     type Mutation {
-       createTask(title: String, description:String): Task
+       createUser(nickname: String, password:String): User
     }
 `;
 

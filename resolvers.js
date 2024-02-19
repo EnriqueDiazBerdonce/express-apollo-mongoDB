@@ -1,20 +1,20 @@
-const Task = require('./models/Task')
+const User = require('./models/User')
 
 const resolvers = {
 
     Query: {
         hello: () => 'Hello World',
-        getAllTasks: async () => {
-            const tasks = await Task.find()
-            return tasks
+        getAllUsers: async () => {
+            const users = await User.find()
+            return users
         }
     },
     Mutation:{
-        createTask: async (_, args) => {
-            const {title, description} = args
-            const newTask = new Task({title, description})
-            await newTask.save()
-            return newTask
+        createUser: async (_, args) => {
+            const {nickname, password} = args
+            const newUser = new User({nickname, password})
+            await newUser.save()
+            return newUser
         }
     }
 
